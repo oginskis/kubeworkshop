@@ -1,0 +1,10 @@
+1. http://controlplane.devopsdays.kubernetes.delivery
+2. Stacks > Instances
+3. Find your instance, Actions > View Details > Download kubeconfig file
+4. `export KUBECONFIG=~/Downloads/viktor.workshop.base.stacks.delivery`
+5. Verify:
+`kubectl cluster-info`
+
+Output must be similar to:
+Kubernetes master is running at https://api.viktor.workshop.base.stacks.delivery:6443
+CoreDNS is running at https://api.viktor.workshop.base.stacks.delivery:6443/api/v1/namespaces/kube-system/services/coredns:dns/proxy

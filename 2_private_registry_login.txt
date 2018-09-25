@@ -1,0 +1,12 @@
+`kubectl create namespace workshop`
+
+https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+`kubectl create secret docker-registry harbor-<cluster-name> --docker-server=harbor.svc.<cluster-name>.workshop.base.stacks.delivery \
+ --docker-username=admin --docker-password=<your-password> --docker-email=<your-email> --namespace workshop`
+
+Verify:
+
+`kubectl get secret harbor-<cluster-name> --output=json`
+
+`kubectl get secret harbor-<cluster-name> --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode`

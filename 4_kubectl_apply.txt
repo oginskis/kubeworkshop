@@ -1,0 +1,13 @@
+`cd k8s-wordsmith-demo`
+
+`kubens workshop`
+`kubectl apply -f kube-deployment.yml`
+
+Apply vs Create?
+How to get external ip from Amazon automatically?
+
+`kubectl describe service web` -> LoadBalancer Ingress -> Observe UI in a browser
+
+`kubectl get pods` -> tail logs of pod web-* -> `kubectl logs -f web-*`
+
+Scale up / down

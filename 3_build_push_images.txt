@@ -1,0 +1,13 @@
+`docker login harbor.svc.<cluster-name>.workshop.base.stacks.delivery`
+
+`cd k8s-wordsmith-demo`
+`docker build -t harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/db db`
+`docker build -t harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/web web`
+`docker build -t harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/words words`
+
+`docker push harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/db`
+`docker push harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/web`
+`docker push harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/words`
+
+
+Multi-stage builds?
