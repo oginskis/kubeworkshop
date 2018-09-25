@@ -1,0 +1,48 @@
+Let's update the database by replacing existing words with Latvian words!
+
+1. Create words2.sql file with the following:
+
+CREATE TABLE nouns (word TEXT NOT NULL);
+CREATE TABLE verbs (word TEXT NOT NULL);
+CREATE TABLE adjectives (word TEXT NOT NULL);
+
+INSERT INTO nouns(word) VALUES
+  ('dators'),
+  ('koks'),
+  ('zīmulis'),
+  ('ūdens'),
+  ('cilvēks'),
+  ('pele');
+
+INSERT INTO verbs(word) VALUES
+  ('lieto'),
+  ('skaitļo'),
+  ('aug'),
+  ('raksta'),
+  ('ir'),
+  ('ēd');
+
+
+INSERT INTO adjectives(word) VALUES
+  ('akls'),
+  ('dzidrs'),
+  ('centīgs'),
+  ('ciets'),
+  ('vecs');  
+
+2. Update db/Dockerfile so it copies the new file to the image
+3. Build an image with tag v2, push the image to repository:
+
+`cd k8s-wordsmith-demo`
+`docker build -t harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/db:v2 db`
+`docker push harbor.svc.<cluster-name>.workshop.base.stacks.delivery/workshop/db:v2`
+
+4. To update the image of the application to version 2, use the set image command, followed by the deployment name and the new image version:
+kubectl set image deployments/db db=harbor.svc.viktor.workshop.base.stacks.delivery/workshop/db:v2
+
+5. Run `kubectl get pods` and observe that new image version has been deployed.
+
+5. Observe on UI that Latvian words started to appear
+
+6. Confirm rollout with:
+`kubectl rollout status deployments/db`

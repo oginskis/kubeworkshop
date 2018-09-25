@@ -10,4 +10,4 @@ How to get external ip from Amazon automatically?
 
 `kubectl get pods` -> tail logs of pod web-* -> `kubectl logs -f web-*`
 
-Scale up / down
+Scale up / down number of words replicas in Words deployment in kube-deployment.yml -> Observe UI in a browser & tail logs of web pod
